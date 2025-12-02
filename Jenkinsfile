@@ -34,7 +34,7 @@ pipeline {
         stage('Plan') {
             steps {
                 script {
-                    withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                    withAWS(credentials: 'Access Keys', region: "${AWS_REGION}") {
                         sh """
                             terraform plan -out=tfplan
                         """
@@ -60,7 +60,7 @@ pipeline {
             }
             steps {
                 script {
-                    withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                    withAWS(credentials: 'Access Keys', region: "${AWS_REGION}") {
                         sh """
                             terraform apply -auto-approve tfplan
                         """
